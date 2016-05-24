@@ -1,0 +1,26 @@
+[global_config]
+  always_split_with_profile = True
+[keybindings]
+[profiles]
+  [[default]]
+    background_darkness = 0.8
+    background_image = None
+    background_type = transparent
+    visible_bell = True
+  [[ubuntu-mono-powerline-12]]
+    use_system_font = False
+    visible_bell = True
+    background_darkness = 0.8
+    background_type = transparent
+    background_image = None
+    font = Ubuntu Mono derivative Powerline 12
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = ubuntu-mono-powerline-12
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]

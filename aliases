@@ -1,0 +1,23 @@
+function screen() {
+    echo "Ditch screen and use tmux. If you still want to use screen, then try 'command screen'.";
+}
+
+function tmux() {
+    command tmux -2 $@
+}
+
+function binary_exists() {
+    which ${1} &> /dev/null
+}
+
+if binary_exists vim ; then
+    function vi() {
+        vim $@
+    }
+fi
+
+if binary_exists nvim ; then
+    function vim() {
+        nvim $@
+    }
+fi

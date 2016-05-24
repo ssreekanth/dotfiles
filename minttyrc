@@ -1,0 +1,9 @@
+Font=Droid Sans Mono for Powerline
+FontHeight=11
+Transparency=off
+OpaqueWhenFocused=no
+CursorType=block
+Scrollbar=none
+PgUpDnScroll=no
+RightClickAction=menu
+BackspaceSendsBS=no

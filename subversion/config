@@ -1,0 +1,14 @@
+
+[auth]
+password-stores = keychain
+
+[helpers]
+editor-cmd = vim
+diff-cmd = svn-diff-wrap.sh
+
+[tunnels]
+
+[miscellany]
+
+[auto-props]
+
