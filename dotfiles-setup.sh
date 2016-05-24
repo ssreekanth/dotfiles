@@ -5,17 +5,17 @@
 # This script creates symlinks from the home directory to any desired dotfiles in ~/.dotfiles
 ############################
 
-########## Variables
+# Variables
 
 timestamp=$( date +"%Y-%m-%d_%H-%M-%S" )
 
-dir=~/dotfiles                    # dotfiles directory
-olddir=${dir}/.old/${timestamp}    # old dotfiles backup directory
+dir=$(pwd)                          # dotfiles directory
+olddir=${dir}/.old/${timestamp}     # old dotfiles backup directory
 
-# list of files/folders to symlink in homedir
+# List of files/folders to symlink in homedir
 
 common_files="aliases bashrc bin gitconfig hushlogin login subversion tmux.conf tmux vimrc vim zshrc"
-common_special_files="ssh/config"
+common_special_files=""
 
 linux_files="i3"
 linux_special_files="config/terminator config/dunst config/volumeicon"
@@ -36,22 +36,12 @@ fi
 
 ##########
 
-echo "Remove existing $olddir in ~"
-rm -rf $olddir
-
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $olddir
 echo -e "...done\n"
 
-# change to the dotfiles directory
-#echo "Changing to the $dir directory"
-#cd $dir
-#echo -e "...done\n"
-
-#mkdir -p ~/.config
-
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
 for file in $files; do
     echo "Moving ~/.$file to $olddir"
     mv -f ~/.$file $olddir
