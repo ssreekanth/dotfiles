@@ -9,8 +9,9 @@
 
 timestamp=$( date +"%Y-%m-%d_%H-%M-%S" )
 
-dir=$(pwd)                          # dotfiles directory
-olddir=${dir}/.old/${timestamp}     # old dotfiles backup directory
+src_dir=$(pwd)                           # dotfiles directory
+old_dir=${src_dir}/.old/${timestamp}     # old dotfiles backup directory
+dst_dir=${HOME}
 
 # List of files/folders to symlink in homedir
 
@@ -36,34 +37,37 @@ fi
 
 ##########
 
+echo "Creating ${dst_dir}"
+mkdir -p ${dst_dir}
+echo -e "...done\n"
+
 # create dotfiles_old in homedir
-echo "Creating $olddir for backup of any existing dotfiles in ~"
-mkdir -p $olddir
+echo "Creating ${old_dir} for backup of any existing dotfiles from ${dst_dir}"
+mkdir -p ${old_dir}
 echo -e "...done\n"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
 for file in $files; do
-    echo "Moving ~/.$file to $olddir"
-    mv -f ~/.$file $olddir
-    echo "Creating symlink to $dir/$file in home directory."
-    ln -s $dir/$file ~/.$file
+    echo "Moving ${dst_dir}/.${file} to ${old_dir}"
+    mv -f ${dst_dir}/.${file} ${old_dir}
+    echo "Creating symlink to ${src_dir}/${file} in home directory."
+    ln -s ${src_dir}/${file} ${dst_dir}/.${file}
     echo -e "\n"
 done
 
 for file in $special_files; do
-    oldfldr=`dirname $olddir/$file`
-    mkdir -p $oldfldr
-    echo "Moving ~/.$file to $oldfldr"
-    mv -f ~/.$file $oldfldr
-    fldr=`dirname ~/.$file`
-    mkdir -p $fldr
-    echo "Creating symlink to $dir/$file in home directory."
-    ln -s $dir/$file ~/.$file
+    old_fldr=`dirname ${old_dir}/${file}`
+    mkdir -p ${old_fldr}
+    echo "Moving ${dst_dir}/.${file} to ${old_fldr}"
+    mv -f ${dst_dir}/.${file} ${old_fldr}
+    fldr=`dirname ${dst_dir}/.${file}`
+    mkdir -p ${fldr}
+    echo "Creating symlink to ${src_dir}/${file} in home directory."
+    ln -s ${src_dir}/${file} ${dst_dir}/.${file}
     echo -e "\n"
 done
 
 # setup Nvim (neovim) config by linking to vim config files.
-mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
-ln -s ~/.vim $XDG_CONFIG_HOME/nvim
-ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
-
+mkdir -p ${XDG_CONFIG_HOME:=${dst_dir}/.config}
+ln -nsf ${src_dir}/vim $XDG_CONFIG_HOME/nvim
+ln -sf ${src_dir}/vimrc $XDG_CONFIG_HOME/nvim/init.vim
