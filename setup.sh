@@ -1,17 +1,18 @@
 #!/bin/bash
 
-############################
-# dotfiles-setup.h
-# This script creates symlinks from the home directory to any desired dotfiles in ~/.dotfiles
-############################
+###############################################################################
+# File:         setup.sh
+# Description:  This script creates symlinks in the home directory to any 
+#               desired dotfiles from this directory.
+###############################################################################
 
 # Variables
 
 timestamp=$( date +"%Y-%m-%d_%H-%M-%S" )
 
-src_dir=$(pwd)                           # dotfiles directory
-old_dir=${src_dir}/.old/${timestamp}     # old dotfiles backup directory
-dst_dir=${HOME}
+src_dir=$(pwd)                           # source location of dotfiles.
+old_dir=${src_dir}/.old/${timestamp}     # backup directory for old dotfiles.
+dst_dir=${HOME}                          # target location for symlinks.
 
 # List of files/folders to symlink in homedir
 
@@ -50,7 +51,7 @@ echo -e "...done\n"
 for file in $files; do
     echo "Moving ${dst_dir}/.${file} to ${old_dir}"
     mv -f ${dst_dir}/.${file} ${old_dir}
-    echo "Creating symlink to ${src_dir}/${file} in home directory."
+    echo "Creating symlink to ${src_dir}/${file} in ${dst_dir} directory."
     ln -s ${src_dir}/${file} ${dst_dir}/.${file}
     echo -e "\n"
 done
@@ -62,7 +63,7 @@ for file in $special_files; do
     mv -f ${dst_dir}/.${file} ${old_fldr}
     fldr=`dirname ${dst_dir}/.${file}`
     mkdir -p ${fldr}
-    echo "Creating symlink to ${src_dir}/${file} in home directory."
+    echo "Creating symlink to ${src_dir}/${file} in ${dst_dir} directory."
     ln -s ${src_dir}/${file} ${dst_dir}/.${file}
     echo -e "\n"
 done
