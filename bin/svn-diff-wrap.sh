@@ -1,3 +1,3 @@
 #!/bin/sh
 source ~/.aliases
-vim -d ${6} ${7}
+vimdiff ${6} ${7}

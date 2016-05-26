@@ -10,14 +10,18 @@ function binary_exists() {
     which ${1} &> /dev/null
 }
 
+if binary_exists nvim ; then
+    function vim() {
+        nvim $@
+    }
+fi
+
 if binary_exists vim ; then
     function vi() {
         vim $@
     }
 fi
 
-if binary_exists nvim ; then
-    function vim() {
-        nvim $@
-    }
-fi
+function vimdiff() {
+    vi -d $@
+}
