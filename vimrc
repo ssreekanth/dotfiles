@@ -71,7 +71,7 @@ endif
 
 set background=dark
 " colorscheme jellybeans
-colorscheme gruvbox
+silent! colorscheme gruvbox
 
 " mark just the first character going out of the specified column
 highlight ColorColumn ctermbg=magenta
@@ -106,7 +106,9 @@ nnoremap <leader>jd :YcmCompleter GoTo<CR>
 " Syntastic settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+if exists('*SyntasticStatuslineFlag')
+    set statusline+=%{SyntasticStatuslineFlag()}
+endif
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
