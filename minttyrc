@@ -1,5 +1,5 @@
-Font=Droid Sans Mono for Powerline
-FontHeight=11
+Font=DejaVu Sans Mono for Powerline
+FontHeight=10
 Transparency=off
 OpaqueWhenFocused=no
 CursorType=block
@@ -7,3 +7,5 @@ Scrollbar=none
 PgUpDnScroll=no
 RightClickAction=menu
 BackspaceSendsBS=no
+Charset=UTF-8
+FontIsBold=no
