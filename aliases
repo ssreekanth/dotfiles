@@ -26,6 +26,14 @@ function vimdiff() {
     vi -d $@
 }
 
+function svn_diff() {
+    svn diff --internal-diff "$@" | vim -R -
+}
+
+function git_diff() {
+    git diff --no-ext-diff -w "$@" | vim -R -
+}
+
 function upgrade_vim_plugins() {
     vi +PluginUpdate +qa
 }
