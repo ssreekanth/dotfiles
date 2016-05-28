@@ -100,26 +100,28 @@ set wildignore+=*.o,*.os,*.a,*.so,*.pyc,*\\.git\\*,*\\.svn\\*
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " YouCompleteMe settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>jd :YcmCompleter GoTo<CR>
+if exists(":YcmCompleter")
+    nnoremap <leader>jd :YcmCompleter GoTo<CR>
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
-set statusline+=%#warningmsg#
-if exists('*SyntasticStatuslineFlag')
+if exists(":SyntasticCheck")
+    set statusline+=%#warningmsg#
     set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 0
+    let g:syntastic_check_on_wq = 0
+
+    let g:syntastic_html_tidy_blocklevel_tags=["ion-nav-view", "ion-content", "ion-pane",
+                \ "ion-header-bar", "ion-list", "ion-item",
+                \ "webview"]
+    let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 endif
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_html_tidy_blocklevel_tags=["ion-nav-view", "ion-content", "ion-pane",
-            \ "ion-header-bar", "ion-list", "ion-item",
-            \ "webview"]
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " old vimrc
@@ -166,6 +168,7 @@ if !has('nvim')
     set ttymouse=xterm2
 endif
 
+" use ESC to exit terminal mode.
 if exists(':tnoremap')
     tnoremap <Esc> <C-\><C-n>
 endif
