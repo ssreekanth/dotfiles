@@ -69,7 +69,7 @@ echo "Creating ${old_dir} for backup of any existing dotfiles from ${user_home_d
 mkdir -p ${old_dir}
 echo -e "...done\n"
 
-create_symlinks "${common_files}" "${common_special_files}" "${dotfiles_repo_dir}"/common "${user_home_dir}"
+create_symlinks "${common_files}" "${common_special_files}" "${dotfiles_repo_dir}/common" "${user_home_dir}"
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     create_symlinks "${linux_files}" "${linux_special_files}" "${dotfiles_repo_dir}/linux" "${user_home_dir}"
