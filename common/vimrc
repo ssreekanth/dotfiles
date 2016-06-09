@@ -63,10 +63,14 @@ endif
 set t_Co=256
 
 if has("gui_running")
-   let s:uname = system("uname")
-   if s:uname == "Darwin\n"
-      set guifont=Inconsolata\ for\ Powerline:h15
-   endif
+    set guioptions-=T " no toolbar
+    set lines=60 columns=180 linespace=0
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+        set guifont=Inconsolata\ for\ Powerline:h13
+    elseif s:uname == "Linux\n"
+        set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+    endif
 endif
 
 set background=dark
