@@ -1,5 +1,12 @@
 bleachbit
+cmake
+exuberant-ctags
 git
+htop
+neovim
+python-pip
+terminator
 tmux
 unity-tweak-tool
+vim-gnome
 vim
