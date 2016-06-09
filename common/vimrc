@@ -78,7 +78,7 @@ set background=dark
 silent! colorscheme gruvbox
 
 " mark just the first character going out of the specified column
-highlight ColorColumn ctermbg=magenta
+"highlight ColorColumn ctermbg=magenta
 set colorcolumn=80
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
