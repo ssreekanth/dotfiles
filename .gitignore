@@ -1,5 +1,6 @@
 .netrwhist
 .old/
-common/vim/init.vim
 common/subversion/README.txt
 common/subversion/auth/
+common/tmux/resurrect
+common/vim/init.vim
