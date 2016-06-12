@@ -13,8 +13,8 @@ set-option -g bell-action none
 
 setw -g clock-mode-colour colour135
 setw -g mode-attr bold
-setw -g mode-fg colour196
-setw -g mode-bg colour238
+setw -g mode-fg yellow
+setw -g mode-bg colour234
 
 # }
 
@@ -31,11 +31,11 @@ set -g pane-active-border-fg colour51
 
 tm_session='#[fg=brightgreen,bold]♟ #S'
 tm_time='#[fg=colour233,bg=colour245,bold] %H:%M:%S'
-tm_date='#[fg=colour233,bg=colour241,bold] %m/%d/%Y'
-tm_host='#[fg=brightred,bg=colour235,bold] #h'
+tm_date='#[fg=colour233,bg=colour241,bold] %d %b %Y' # %m/%d/%Y'
+tm_host='#[fg=brightred,bg=colour234,bold] #h'
 
 set -g status-position bottom
-set -g status-justify centre
+set -g status-justify left
 set -g status-bg colour234
 set -g status-fg colour137
 set -g status-attr dim
