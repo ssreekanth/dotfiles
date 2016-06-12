@@ -54,10 +54,10 @@ common_special_files=""
 darwin_files="gitconfig"
 darwin_special_files=""
 
-linux_files="i3"
+linux_files="gitconfig i3"
 linux_special_files="config/terminator config/dunst config/volumeicon"
 
-windows_files="minttyrc"
+windows_files="gitconfig minttyrc"
 windows_special_files=""
 
 echo "Creating ${user_home_dir}"
