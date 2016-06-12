@@ -2,5 +2,4 @@
 .old/
 common/subversion/README.txt
 common/subversion/auth/
-common/tmux/resurrect
 common/vim/init.vim
