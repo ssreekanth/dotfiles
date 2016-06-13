@@ -2,4 +2,5 @@
 .old/
 common/subversion/README.txt
 common/subversion/auth/
+common/vim/autoload/plug.vim
 common/vim/init.vim

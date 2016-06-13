@@ -1,57 +1,55 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin('~/.tmp/vim/bundle')
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source ~/.vimrc
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.tmp/vim/plugged')
 
 " Themes / Color Schemes
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'flazz/vim-colorschemes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'flazz/vim-colorschemes'
 
 " Typescript syntax highlighting and other settings.
-Plugin 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 
 " Cursorline highlighter
-Plugin 'miyakogi/conoline.vim'
+Plug 'miyakogi/conoline.vim'
 
 " File Explorer
-Plugin 'scrooloose/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'mileszs/ack.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack.vim'
 
 " Super Editing
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'junegunn/vim-easy-align'
-"Plugin 'godlygeek/tabular'
-Plugin 'tpope/vim-surround'
-Plugin 'kana/vim-textobj-user'
-Plugin 'glts/vim-textobj-comment'
-Plugin 'tpope/vim-commentary'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'junegunn/vim-easy-align'
+"Plug 'godlygeek/tabular'
+Plug 'tpope/vim-surround'
+Plug 'kana/vim-textobj-user'
+Plug 'glts/vim-textobj-comment'
+Plug 'tpope/vim-commentary'
 
 " Git plugins
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'juneedahamed/svnj.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'juneedahamed/svnj.vim'
 
 " AutoComplete / Syntax Checking / Code Navigation
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
-Plugin 'majutsushi/tagbar'
+Plug 'Valloric/YouCompleteMe'
+Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar'
 
-Plugin 'wikitopian/hardmode'
-Plugin 'takac/vim-hardtime'
+Plug 'wikitopian/hardmode'
+Plug 'takac/vim-hardtime'
 
-Plugin 'easymotion/vim-easymotion'
-Plugin 'dietsche/vim-lastplace'
+Plug 'easymotion/vim-easymotion'
+Plug 'dietsche/vim-lastplace'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on
+call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 

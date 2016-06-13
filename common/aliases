@@ -35,7 +35,7 @@ function git_diff() {
 }
 
 function upgrade_vim_plugins() {
-    vi +PluginUpdate +qa
+    vi +PlugUpdate +qa
 }
 
 function upgrade_brew_packages() {
