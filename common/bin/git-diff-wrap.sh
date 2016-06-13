@@ -1,3 +1,4 @@
 #!/bin/bash
-source ~/.aliases
+
+. ~/.aliases
 vimdiff "${2}" "${5}"

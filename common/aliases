@@ -1,3 +1,5 @@
+# vi: ft=sh
+
 function screen() {
     echo "Ditch screen and use tmux. If you still want to use screen, then try 'command screen'.";
 }
