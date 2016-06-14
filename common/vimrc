@@ -68,6 +68,8 @@ if has("gui_running")
         set guifont=Inconsolata\ for\ Powerline:h13
     elseif s:uname == "Linux\n"
         set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+    else
+        set guifont=Powerline\ Consolas\ 13
     endif
 endif
 
