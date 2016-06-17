@@ -1,20 +1,48 @@
+>>>> TAPS <<<<
+
+beeftornado/rmtree
+caskroom/cask
+caskroom/fonts
+caskroom/versions
+homebrew/core
+homebrew/dupes
+homebrew/gui
+neovim/neovim
+
+
+>>>> Homebrew Packages <<<<
+
 android-platform-tools
+bash
+brew-rmtree
 cmake
 curl
 htop-osx
+gimp
 git
+less
 meld
 neovim
 node
+openssh
 openssl
+pstree
 python
+reattach-to-user-namespace
+scons
 subversion
+tcpdump
 tmux
 tree
+valgrind
 vim
 wget
 zsh
 
+
+>>>> Homebrew-Caskroom Packages <<<<
+
+atom
 cyberduck
 deluge
 diffmerge
@@ -22,9 +50,11 @@ dockertoolbox
 filezilla
 firefox
 flickr-uploadr
+font-meslo-lg-for-powerline
 google-chrome
 google-photos-backup
 iterm2-beta
+keycastr
 kodi
 macvim
 mongochef
@@ -35,6 +65,7 @@ skype
 sourcetree
 spectacle
 sublime-text3
+superduper
 unrarx
 virtualbox
 viscosity
