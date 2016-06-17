@@ -16,10 +16,11 @@ android-platform-tools
 bash
 brew-rmtree
 cmake
+ctags
 curl
-htop-osx
 gimp
 git
+htop-osx
 less
 meld
 neovim
