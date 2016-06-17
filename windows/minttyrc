@@ -9,3 +9,4 @@ RightClickAction=menu
 BackspaceSendsBS=no
 Charset=UTF-8
 FontIsBold=no
+AllowBlinking=yes
