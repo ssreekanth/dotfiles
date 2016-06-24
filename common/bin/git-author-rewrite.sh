@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
  
 git filter-branch --env-filter '
 
