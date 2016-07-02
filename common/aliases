@@ -29,11 +29,11 @@ function vimdiff() {
 }
 
 function svn_diff() {
-    svn diff --internal-diff "$@" | vim -R -
+    svn diff --internal-diff "$@" | vi -R -
 }
 
 function git_diff() {
-    git diff --no-ext-diff -w "$@" | vim -R -
+    git diff --no-ext-diff -w "$@" | vi -R -
 }
 
 function upgrade_vim_plugins() {
