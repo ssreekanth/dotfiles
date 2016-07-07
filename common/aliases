@@ -1,10 +1,39 @@
 # vi: ft=sh
 
+function if_os() {
+    [[ "$OSTYPE" == *"$1"* ]];
+}
+
+function is_linux() {
+    if_os linux
+}
+
+function is_darwin() {
+    if_os darwin
+}
+
+function is_windows() {
+    case "$OSTYPE" in
+        *cygwin* | *msys* | *win32* ) sys="windows";;
+    esac
+    [[ "${sys}" == "windows" ]];
+}
+
 function screen() {
     echo "Ditch screen and use tmux. If you still want to use screen, then try 'command screen'.";
 }
 
 function tmux() {
+    tmux_version=`command tmux -V | awk -F " " '{print $2}'`
+    if [[ "${tmux_version}" == "2.2" ]]; then
+        # need this for tmux version 2.2 only.
+        if is_darwin; then
+            export EVENT_NOKQUEUE=1
+            export EVENT_NOPOLL=1
+        elif is_linux; then
+            export EVENT_NOEPOLL=1
+        fi
+    fi
     command tmux -2 $@
 }
 
