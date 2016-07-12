@@ -34,6 +34,7 @@ tm_session='(#[fg=colour81]#S#[fg=brightgreen,bold]) '
 tm_time='#[fg=colour233,bg=colour245,bold] %H:%M:%S '
 tm_date='#[fg=colour233,bg=colour241,bold] %d %b %Y ' # %m/%d/%Y'
 tm_host='#[fg=brightred,bg=colour234,bold] #h '
+tm_sync='#{?pane_synchronized,⛓ ,}'
 
 set -g status-position bottom
 set -g status-justify left
@@ -49,12 +50,12 @@ set -g status-interval 5
 setw -g window-status-current-fg colour81
 setw -g window-status-current-bg colour238
 setw -g window-status-current-attr bold
-setw -g window-status-current-format ' #I#[fg=colour250]:#[fg=colour255]#W#[fg=colour50]#F '
+setw -g window-status-current-format " $tm_sync#I#[fg=colour250]:#[fg=colour255]#W#[fg=colour50]#F "
 
 setw -g window-status-fg colour138
 setw -g window-status-bg colour235
 setw -g window-status-attr none
-setw -g window-status-format ' #I#[fg=colour237]:#[fg=colour250]#W#[fg=colour244]#F '
+setw -g window-status-format " $tm_sync#I#[fg=colour237]:#[fg=colour250]#W#[fg=colour244]#F "
 
 setw -g window-status-bell-attr bold
 setw -g window-status-bell-fg colour255
