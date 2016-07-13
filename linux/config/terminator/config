@@ -14,6 +14,7 @@
     background_type = transparent
     background_image = None
     font = Ubuntu Mono derivative Powerline 12
+    show_titlebar = False
 [layouts]
   [[default]]
     [[[child1]]]
