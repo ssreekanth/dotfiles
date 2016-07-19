@@ -49,11 +49,21 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew brew-cask debian docker extract git npm osx vi-mode z)
+plugins=(docker extract git npm vi-mode z)
+
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
+
+if is_darwin; then
+    plugins+=(brew brew-cask osx)
+elif is_linux; then
+    plugins+=(debian)
+fi
 
 # User configuration
 
-export PATH="$HOME/.bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/games:/usr/games:/snap/bin"
+# export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -82,13 +92,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
-fi
-
-# show MODE at the far right of the zsh prompt line
-MODE_INDICATOR="%{$fg_bold[yellow]%} [% NORMAL]% %{$reset_color%}"
-
-# set up for insert mode too
-bindkey -M viins '^R' history-incremental-pattern-search-backward
-bindkey -M viins '^F' history-incremental-pattern-search-forward
