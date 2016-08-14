@@ -166,6 +166,7 @@ autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 if !has('nvim')
     set ttymouse=xterm2
+    set mouse=a
 endif
 
 " use ESC to exit terminal mode.
