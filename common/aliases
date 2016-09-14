@@ -71,9 +71,11 @@ function upgrade_vim_plugins() {
 
 if is_darwin; then
     function upgrade_brew_packages() {
-        echo ">>>>>>>>>>> brew non-gui packages >>>>>>>>>>>>>>>>>"
-        brew update && brew upgrade && brew cleanup
-        echo ">>>>>>>>>>> brew gui packages >>>>>>>>>>>>>>>>>"
-        brew cask update && brew cask list | xargs brew cask install && brew cask cleanup
+        echo "====>>>> Updating homebrew"
+        brew update
+        echo "====>>>> Upgrading outdated brew packages"
+        brew upgrade && brew cleanup
+        echo "====>>>> Upgrading outdated cask packages"
+        brew cu && brew cask cleanup
     }
 fi

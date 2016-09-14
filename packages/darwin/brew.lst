@@ -8,6 +8,7 @@ homebrew/core
 homebrew/dupes
 homebrew/gui
 neovim/neovim
+buo/cask-upgrade
 
 
 >>>> Homebrew Packages <<<<
@@ -20,6 +21,7 @@ ctags
 curl
 gimp
 git
+go
 htop-osx
 less
 meld
@@ -47,12 +49,13 @@ atom
 cyberduck
 deluge
 diffmerge
-dockertoolbox
+docker
+dockertoolbox (if 'docker' is not supported on certain hardware or OS X versions)
 filezilla
 firefox
 flickr-uploadr
 font-meslo-lg-for-powerline
-go
+gimp
 google-chrome
 google-photos-backup
 iterm2
@@ -66,7 +69,7 @@ robomongo
 skype
 sourcetree
 spectacle
-sublime-text3
+sublime-text
 superduper
 unrarx
 vagrant
