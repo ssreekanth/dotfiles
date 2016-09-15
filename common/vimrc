@@ -49,6 +49,9 @@ Plug 'takac/vim-hardtime'
 Plug 'easymotion/vim-easymotion'
 Plug 'dietsche/vim-lastplace'
 
+" Zoom in/out current window
+Plug 'szw/vim-maximizer'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
