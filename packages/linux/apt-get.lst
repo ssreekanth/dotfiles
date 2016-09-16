@@ -4,9 +4,27 @@ exuberant-ctags
 git
 htop
 neovim
+open-vm-tools-desktop
 python-pip
 terminator
 tmux
 unity-tweak-tool
 vim-gnome
 vim
+zsh
+
+-------------------------
+
+Install powerline-fonts
+
+$ wget https://github.com/powerline/fonts/archive/master.zip
+
+Install oh-my-zsh
+
+$ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+-------------------------
+
+Setup dotfiles
+
+$ ~/Downloads/dotfiles/setup.sh
