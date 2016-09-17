@@ -6,7 +6,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall | source ~/.vimrc
 endif
 
-call plug#begin('~/.tmp/vim/plugged')
+call plug#begin($VIM_PLUGIN_TMP_DIR)
 
 " Themes / Color Schemes
 Plug 'vim-airline/vim-airline'
