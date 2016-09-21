@@ -53,7 +53,7 @@ cyberduck
 deluge
 diffmerge
 docker
-dockertoolbox (if 'docker' is not supported on certain hardware or OS X versions)
+dockertoolbox (if 'docker for mac' is not supported on certain hardware or OS X versions)
 filezilla
 firefox
 flickr-uploadr
