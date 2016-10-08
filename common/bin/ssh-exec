@@ -1,0 +1,141 @@
+#!/usr/bin/env bash
+# -----------------------------------------------------------------------------
+# @author  Sreekanth S
+# -----------------------------------------------------------------------------
+#
+
+function binary_exists() {
+    which ${1} &> /dev/null
+}
+
+function log_error() {
+    tput bold
+    tput setaf 1
+    printf "===> "
+    tput setaf 7
+    printf "Error: ${1}\n"
+    tput sgr0
+}
+
+function log_info() {
+    tput bold
+    tput setaf 2
+    printf "===> "
+    tput setaf 7
+    printf "$1\n"
+    tput sgr0
+}
+
+function generate_and_copy_keys() {
+    # check for dir exists. If not, then create it.
+    if [ ! -d "${my_key_dir}" ]; then
+        mkdir -p `dirname ${my_priv_key_file}`
+    fi
+
+    if [ ! -f "${my_priv_key_file}" -o ! -f "${my_pub_key_file}" ]; then
+        log_info "Generating SSH keys.."
+        # ssh-keygen -t rsa -N cgn -C "A comment.. usually an email is enough here..." -f ${my_priv_key_file}
+        # echo -e 'y' | ssh-keygen -q -t rsa -N "" -f ${my_priv_key_file}
+        ssh-keygen -q -t rsa -N "" -f ${my_priv_key_file}
+        if [ $? -ne 0 ]; then
+            log_error "Failed to generate keys. Exiting.."
+            exit 2
+        else
+            log_info "Done.."
+        fi
+    fi
+
+    log_info "Copying SSH public key to the remote machine.."
+    if binary_exists ssh-copy-id ; then
+        log_info "Using ssh-copy-id.."
+        ssh-copy-id -i ${my_pub_key_file} -p ${port} ${user}@${remote_host}
+    else
+        cat ${my_pub_key_file} | ssh -p ${port} ${user}@${remote_host} "cat >> .ssh/authorized_keys"
+    fi
+    if [ $? -ne 0 ]; then
+        log_error "Failed to copy public key to the target machine. Exiting.."
+        exit 3
+    else
+        log_info "Done.."
+    fi
+}
+
+function run_remote_command() {
+    if [ "$#" -eq 0 ]; then
+        log_info "Did you forget to provide the command ?"
+        log_info "Let me leave you in remote's shell, take your time to enter the command."
+        log_info "But, Don't forget to exit from remote shell.."
+    fi
+    ssh -tq -i ${my_priv_key_file} -o "PasswordAuthentication no" -p ${port} ${user}@${remote_host} $@
+}
+
+function show_help() {
+    show_version
+    echo -e "Usage:"
+    echo -e "\t$(basename $0) [-v] [-p <port>] [<user>@]<hostname> [<command>]"
+    echo -e "\t$(basename $0) -h"
+    echo -e "\t$(basename $0) -V"
+    echo -e "Options:"
+    echo -e "\t-h           show this usage info"
+    echo -e "\t-p <port>    specify SSH remote port [default: 22]"
+    echo -e "\t-V           show version"
+    echo -e "\t-v           verbose"
+}
+
+function show_version() {
+    echo "$(basename $0) 1.0.0"
+}
+
+function parse_args() {
+    while getopts "hp:Vv" opt; do
+        case "$opt" in
+            h) show_help; exit 0 ;;
+            p) port=$OPTARG ;;
+            V) show_version; exit 0 ;;
+            v) verbose=1 ;;
+            *) exit 129 ;;
+        esac
+    done
+
+    shift $((OPTIND-1))
+    [ "$1" = "--" ] && shift
+
+    user=$(echo $1 | awk -F'@' '{print $1}')
+    remote_host=$(echo $1 | awk -F'@' '{print $2}')
+
+    if [ -z "${remote_host}" ]; then
+        remote_host=${user}
+        user=$USER
+    fi
+
+    shift
+
+    if [ -z "${remote_host}" ]; then
+        log_error "Remote hostname or ip address not provided"
+        exit 1
+    fi
+
+    cmd=$@
+}
+
+######## Main ########
+
+OPTIND=1
+verbose=0
+remote_host=""
+user=""
+port=22
+cmd=""
+
+parse_args $@
+
+my_key_dir=${HOME}/.ssh/keys/${remote_host}
+my_priv_key_file=${my_key_dir}/id_rsa_${user}
+my_pub_key_file=${my_priv_key_file}.pub
+
+run_remote_command "echo $HOSTNAME" > /dev/null
+if [ $? -ne 0 ]; then
+    generate_and_copy_keys
+fi
+
+run_remote_command ${cmd}
