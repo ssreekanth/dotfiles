@@ -51,7 +51,7 @@ user_home_dir=${HOME}                              # target location for symlink
 common_files="aliases bashrc bin hushlogin login subversion tmux.conf tmux vimrc vim zshrc"
 common_special_files="oh-my-zsh/custom/custom"
 
-darwin_files="gitconfig hyperterm.js"
+darwin_files="gitconfig hyper.js"
 darwin_special_files=""
 
 linux_files="gitconfig i3"
