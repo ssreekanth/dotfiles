@@ -21,7 +21,6 @@ cmake
 ctags
 curl
 gcc
-gimp (fails to install on my old iMac)
 git
 go
 htop-osx
@@ -74,7 +73,9 @@ skype
 sourcetree
 spectacle
 sublime-text
+sublime-text2 (need this on my old iMac)
 superduper
+transmission (need this on my old iMac)
 unrarx
 vagrant
 virtualbox
