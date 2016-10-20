@@ -70,7 +70,7 @@ function upgrade_vim_plugins() {
 }
 
 function upgrade_tmux_plugins() {
-    ${TMUX_PLUGIN_TMP_DIR}/tpm/bin/update_plugins all
+    ${HOME}/.tmp/tmux/plugins/tpm/bin/update_plugins all
 }
 
 if is_darwin; then
