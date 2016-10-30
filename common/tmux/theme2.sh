@@ -36,13 +36,16 @@ tm_date='#[fg=colour233,bg=colour241,bold] %d %b %Y ' # %m/%d/%Y'
 tm_host='#[fg=brightred,bg=colour234,bold] #h '
 tm_sync='#{?pane_synchronized,⛓ ,}'
 
+set -g @prefix_highlight_show_copy_mode 'on'
+set -g @prefix_highlight_copy_mode_attr 'fg=black,bg=yellow,bold'
+
 set -g status-position bottom
 set -g status-justify left
 set -g status-bg colour234
 set -g status-fg colour137
 set -g status-attr dim
 set -g status-left $tm_user$tm_session
-set -g status-right $tm_date$tm_time$tm_host
+set -g status-right '#{prefix_highlight}'$tm_date$tm_time$tm_host
 set -g status-right-length 50
 set -g status-left-length 40
 set -g status-interval 5
