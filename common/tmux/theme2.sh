@@ -46,7 +46,7 @@ set -g status-fg colour137
 set -g status-attr dim
 set -g status-left $tm_user$tm_session
 set -g status-right '#{prefix_highlight}'$tm_date$tm_time$tm_host
-set -g status-right-length 50
+set -g status-right-length 60
 set -g status-left-length 40
 set -g status-interval 5
 
