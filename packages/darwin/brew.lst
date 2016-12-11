@@ -28,7 +28,7 @@ less
 meld
 neovim
 node
-node4-lts (need this on my old iMac)
+node@4 (need this on my old iMac)
 openssh
 openssl
 pstree
@@ -56,6 +56,7 @@ dockertoolbox (if 'docker for mac' is not supported on certain hardware or OS X 
 filezilla
 firefox
 flickr-uploadr
+flux
 font-meslo-lg-for-powerline
 gimp
 google-chrome
