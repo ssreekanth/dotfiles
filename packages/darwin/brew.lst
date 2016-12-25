@@ -53,6 +53,7 @@ deluge
 diffmerge
 docker
 dockertoolbox (if 'docker for mac' is not supported on certain hardware or OS X versions)
+etcher
 filezilla
 firefox
 flickr-uploadr
@@ -76,6 +77,7 @@ spectacle
 sublime-text
 sublime-text2 (need this on my old iMac)
 superduper
+teamviewer
 transmission (need this on my old iMac)
 unrarx
 vagrant
