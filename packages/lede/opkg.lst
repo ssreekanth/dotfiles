@@ -1,0 +1,21 @@
+bash                    # need this, otherwise it won't let you login, if BASH was configured as root's SHELL.
+ca-certificates         # need this for DDNS
+ca-bundle               # need this for git
+curl
+diffutils               # need this for "vim -d"
+git
+git-http
+htop
+luci-app-adblock
+luci-app-wol
+luci-app-openvpn
+luci-app-ddns
+luci-ssl
+openssh-server
+openssh-client
+openssh-sftp-server
+tcpdump
+tmux
+vim-full
+wget                    # need this for adblock.
+zsh
