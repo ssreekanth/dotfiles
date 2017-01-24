@@ -22,10 +22,10 @@ ctags
 curl
 gcc
 git
+gnuplot
 go
 htop-osx
 less
-meld
 neovim
 node
 node@4 (need this on my old iMac)
@@ -67,6 +67,7 @@ iterm2
 keycastr
 kodi
 macvim
+meld
 mongochef
 opera
 postman
@@ -78,6 +79,7 @@ sublime-text
 sublime-text2 (need this on my old iMac)
 superduper
 teamviewer
+timestamp
 transmission (need this on my old iMac)
 unrarx
 vagrant
