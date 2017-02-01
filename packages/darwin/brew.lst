@@ -41,6 +41,7 @@ tmux
 tree
 valgrind (fails to install on my old iMac)
 vim
+watch
 wget
 zsh
 
