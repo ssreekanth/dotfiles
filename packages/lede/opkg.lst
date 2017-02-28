@@ -1,6 +1,7 @@
 bash                    # need this, otherwise it won't let you login, if BASH was configured as root's SHELL.
 ca-certificates         # need this for DDNS
 ca-bundle               # need this for git
+coreutils-dircolors     # my .bashrc uses dircolors
 curl
 diffutils               # need this for "vim -d"
 git
