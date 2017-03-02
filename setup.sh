@@ -38,6 +38,11 @@ create_symlinks () {
 
 }
 
+# source aliases
+if [ -f ./common/aliases ]; then
+    . ./common/aliases
+fi
+
 # Variables
 
 timestamp=$( date +"%Y-%m-%d_%H-%M-%S" )
@@ -71,15 +76,18 @@ echo -e "...done\n"
 
 create_symlinks "${common_files}" "${common_special_files}" "${dotfiles_repo_dir}/common" "${user_home_dir}"
 
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
+if is_linux; then
     create_symlinks "${linux_files}" "${linux_special_files}" "${dotfiles_repo_dir}/linux" "${user_home_dir}"
-elif [[ "$OSTYPE" == "cygwin" || "$OSTYPE" == "msys" || "$OSTYPE" == "win32" ]]; then
+elif is_windows; then
     create_symlinks "${windows_files}" "${windows_special_files}" "${dotfiles_repo_dir}/windows" "${user_home_dir}"
-elif [[ "$OSTYPE" == "darwin"* ]]; then
+elif is_darwin; then
     create_symlinks "${darwin_files}" "${darwin_special_files}" "${dotfiles_repo_dir}/darwin" "${user_home_dir}"
 fi
 
-# setup Nvim (neovim) config by linking to vim config files.
-mkdir -p ${XDG_CONFIG_HOME:=${user_home_dir}/.config}
-ln -nsf ${dotfiles_repo_dir}/common/vim $XDG_CONFIG_HOME/nvim
-ln -sf ${dotfiles_repo_dir}/common/vimrc $XDG_CONFIG_HOME/nvim/init.vim
+
+if binary_exists nvim ; then
+    # setup Nvim (neovim) config by linking to vim config files.
+    mkdir -p ${XDG_CONFIG_HOME:=${user_home_dir}/.config}
+    ln -nsf ${dotfiles_repo_dir}/common/vim $XDG_CONFIG_HOME/nvim
+    ln -sf ${dotfiles_repo_dir}/common/vimrc $XDG_CONFIG_HOME/nvim/init.vim
+fi

@@ -8,6 +8,20 @@ function is_linux() {
     if_os linux
 }
 
+function get_linux_distrib_id() {
+    cat /etc/*release* | grep -i distrib_id | awk -F "=" '{print $2}'
+}
+
+function is_ubuntu() {
+    dist=$(get_linux_distrib_id)
+    [[ "${dist}" == "Ubuntu" ]];
+}
+
+function is_lede() {
+    dist=$(get_linux_distrib_id)
+    [[ "${dist}" == "lede" ]];
+}
+
 function is_darwin() {
     if_os darwin
 }
@@ -85,5 +99,14 @@ if is_darwin; then
         brew cu
         echo "====>>>> Cleaning up cask cached downloads"
         brew cask cleanup
+    }
+fi
+
+if is_lede; then
+    function upgrade_opkg_packages() {
+        echo "====>>>> Updating opkg"
+        opkg update
+        echo "====>>>> Upgrading outdated opkg packages"
+        opkg list-upgradable | awk -F " " '{print $1}' | xargs opkg upgrade
     }
 fi

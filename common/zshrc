@@ -60,7 +60,11 @@ plugins=(docker extract git npm tmux vi-mode z)
 if is_darwin; then
     plugins+=(brew brew-cask osx)
 elif is_linux; then
-    plugins+=(debian)
+    if is_ubuntu; then
+        plugins+=(debian)
+    elif is_lede; then
+        plugins+=(opkg)
+    fi
 fi
 
 source $ZSH/oh-my-zsh.sh
