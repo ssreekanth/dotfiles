@@ -5,3 +5,6 @@ elif binary_exists vim ; then
 elif binary_exists vi ; then
     export EDITOR=vi
 fi
+
+if [[ $TERMINIX_ID ]]; then source /etc/profile.d/vte.sh; fi # Ubuntu Budgie END
+

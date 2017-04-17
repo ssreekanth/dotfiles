@@ -117,3 +117,6 @@ if ! shopt -oq posix; then
 fi
 
 export PATH=$HOME/.bin:$PATH
+
+if [[ $TERMINIX_ID ]]; then source /etc/profile.d/vte.sh; fi # Ubuntu Budgie END
+
