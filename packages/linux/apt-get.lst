@@ -2,6 +2,7 @@ bleachbit
 cmake
 exuberant-ctags
 git
+headset
 htop
 neovim
 open-vm-tools-desktop
