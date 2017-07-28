@@ -27,7 +27,7 @@ go
 htop-osx
 less
 neovim
-node
+node@6
 node@4 (need this on my old iMac)
 openssh
 openssl
