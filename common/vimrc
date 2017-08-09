@@ -149,6 +149,13 @@ silent! retab
 set relativenumber
 set number
 
+" Enable smartcase.
+" If the search pattern contains any uppercase character, then it will do 
+" a case sensitive search. Otherwise, it does case insensitive search.
+" You can use \c and \C to override this.
+set ignorecase
+set smartcase
+
 " toggle invisible characters
 set invlist
 set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
