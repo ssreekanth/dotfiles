@@ -82,7 +82,7 @@ if is_darwin; then
         echo "====>>>> Cleaning up brew cached downloads"
         brew cleanup
         echo "====>>>> Upgrading outdated cask packages"
-        brew cu
+        brew cu -a -y
         echo "====>>>> Cleaning up cask cached downloads"
         brew cask cleanup
     }
