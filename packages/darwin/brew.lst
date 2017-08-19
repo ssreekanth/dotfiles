@@ -58,6 +58,8 @@ dockertoolbox (if 'docker for mac' is not supported on certain hardware or OS X 
 etcher
 filezilla
 firefox
+flash-npapi
+flash-ppapi
 flickr-uploadr
 flux
 font-meslo-lg-for-powerline
