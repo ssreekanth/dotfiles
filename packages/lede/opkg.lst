@@ -11,6 +11,7 @@ luci-app-adblock
 luci-app-wol
 luci-app-openvpn
 luci-app-ddns
+luci-proto-wireguard
 luci-ssl
 openssh-server
 openssh-client
@@ -21,4 +22,5 @@ tcpdump
 tmux
 vim-full
 wget                    # need this for adblock.
+wireguard
 zsh
