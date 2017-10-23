@@ -24,7 +24,7 @@ gcc
 git
 gnuplot
 go
-htop-osx
+htop
 less
 neovim
 node@6
@@ -50,6 +50,7 @@ zsh
 >>>> Homebrew-Caskroom Packages <<<<
 
 atom
+cliqz
 cyberduck
 deluge
 diffmerge
@@ -74,12 +75,15 @@ keycastr
 kodi
 macvim
 meld
+nylas-mail (defunct)
 opera
+pgadmin4
 postman
 robomongo
 skype
 sourcetree
 spectacle
+spotify
 studio-3t (formerly mongochef)
 sublime-text
 sublime-text2 (need this on my old iMac)
