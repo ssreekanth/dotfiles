@@ -6,7 +6,6 @@ caskroom/cask
 caskroom/fonts
 caskroom/versions (need this on my old iMac)
 homebrew/core
-homebrew/dupes
 homebrew/gui
 homebrew/versions (need this on my old iMac)
 neovim/neovim
@@ -64,8 +63,9 @@ firefox
 flash-npapi
 flash-ppapi
 flickr-uploadr
-flux
+flux (not needed on macOS Sierra or later)
 font-meslo-for-powerline
+fork
 gimp
 google-chrome
 google-photos-backup-and-sync
@@ -102,6 +102,7 @@ vivaldi
 vlc
 vmware-fusion
 wakeonlan
+whatsapp
 wireshark
 xquartz
 
