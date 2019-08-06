@@ -58,7 +58,7 @@ fi
 plugins=(docker extract git npm tmux vi-mode z)
 
 if is_darwin; then
-    plugins+=(brew brew-cask osx)
+    plugins+=(brew osx)
 elif is_linux; then
     plugins+=(debian)
 fi
