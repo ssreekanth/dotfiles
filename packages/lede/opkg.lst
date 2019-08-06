@@ -8,19 +8,23 @@ git
 git-http
 htop
 luci-app-adblock
-luci-app-wol
-luci-app-openvpn
 luci-app-ddns
+luci-app-mjpg-streamer
+luci-app-openvpn
+luci-app-qos
+luci-app-uhttpd
 luci-proto-wireguard
+luci-app-wol
 luci-ssl
-openssh-server
+luci-theme-material
 openssh-client
+openssh-server
 openssh-sftp-server
 openvpn-easy-rsa
 openvpn-openssl
 tcpdump
 tmux
-vim-full
+vim-fuller
 wget                    # need this for adblock.
 wireguard
 zsh
