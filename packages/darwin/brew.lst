@@ -37,6 +37,7 @@ python
 reattach-to-user-namespace
 ruby@2.3 (need this on my old iMac)
 scons
+screen
 subversion
 tcpdump
 tmux
