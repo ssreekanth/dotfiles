@@ -24,13 +24,16 @@ gcc
 git
 gnuplot
 go
+grip
 htop
 less
+lynx
 neovim
 node@6
 node@4 (need this on my old iMac)
 openssh
 openssl
+pandoc
 pstree
 python
 reattach-to-user-namespace
