@@ -13,7 +13,6 @@ neovim/neovim
 
 >>>> Homebrew Packages <<<<
 
-android-platform-tools (not supported on my old iMac)
 bash
 bear
 brew-rmtree
@@ -53,6 +52,7 @@ zsh
 
 >>>> Homebrew-Caskroom Packages <<<<
 
+android-platform-tools (not supported on my old iMac)
 atom
 cliqz
 cyberduck
@@ -61,7 +61,7 @@ diffmerge
 docker
 dockertoolbox (if 'docker for mac' is not supported on certain hardware or OS X versions)
 etcher
-filezilla
+filezilla (dangerous - malware)
 firefox
 flash-npapi
 flash-ppapi
@@ -79,8 +79,8 @@ iterm2
 keycastr
 kodi
 macvim
+mailspring (originally Nylas Mail)
 meld
-nylas-mail (defunct)
 opera
 pgadmin4
 postman
@@ -94,6 +94,8 @@ sublime-text
 sublime-text2 (need this on my old iMac)
 superduper
 teamviewer
+termhere
+terminus
 timestamp
 transmission (need this on my old iMac)
 unrarx
