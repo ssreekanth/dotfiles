@@ -14,13 +14,13 @@
 [profiles]
   [[default]]
     background_darkness = 0.8
-    background_image = None
     background_type = transparent
+    cursor_color = "#aaaaaa"
     visible_bell = True
   [[ubuntu-mono-powerline-12]]
     background_darkness = 0.8
-    background_image = None
     background_type = transparent
+    cursor_color = "#aaaaaa"
     font = Ubuntu Mono derivative Powerline 12
     show_titlebar = False
     use_system_font = False
