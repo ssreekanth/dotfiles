@@ -105,6 +105,16 @@ let g:conoline_use_colorscheme_default_insert=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 set wildignore+=*.o,*.os,*.a,*.so,*.pyc,*/.git/*,*/.svn/*
 set wildignore+=*.o,*.os,*.a,*.so,*.pyc,*\\.git\\*,*\\.svn\\*
+if filereadable(".gitignore")
+    " let g:ctrlp_user_command = 'find %s -type f | grep -v "`cat .gitignore`"'
+    let g:ctrlp_user_command = {
+      \ 'types': {
+        \ 1: ['.git', 'cd %s && git ls-files --cached --others --exclude-standard'],
+        \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+        \ },
+      \ 'fallback': 'find %s -type f'
+      \ }
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " YouCompleteMe settings
@@ -150,7 +160,7 @@ set relativenumber
 set number
 
 " Enable smartcase.
-" If the search pattern contains any uppercase character, then it will do 
+" If the search pattern contains any uppercase character, then it will do
 " a case sensitive search. Otherwise, it does case insensitive search.
 " You can use \c and \C to override this.
 set ignorecase
@@ -163,7 +173,11 @@ highlight SpecialKey ctermbg=none " make the highlighting of tabs less annoying
 set showbreak=↪
 nmap <leader>l :set list!<cr>
 
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp,.
+if !has('nvim')
+    set backupdir=~/.tmp
+else
+    set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp,.
+endif
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp,.
 set undodir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp,.
 
