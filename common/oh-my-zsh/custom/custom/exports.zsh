@@ -6,9 +6,9 @@ elif binary_exists vi ; then
     export EDITOR=vi
 fi
 
-if [[ $TERMINIX_ID ]]; then source /etc/profile.d/vte.sh; fi # Ubuntu Budgie END
+if [[ $TERMINIX_ID ]]; then source /etc/profile.d/vte-*.sh; fi # Ubuntu Budgie END
 
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-    source /etc/profile.d/vte.sh
+    source /etc/profile.d/vte-*.sh
 fi
 
