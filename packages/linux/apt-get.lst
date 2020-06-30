@@ -1,6 +1,7 @@
 bleachbit
 cmake
 exuberant-ctags
+fonts-powerline
 git
 headset
 htop
@@ -13,22 +14,28 @@ terminator
 tilix
 tmux
 unity-tweak-tool
-vim-gnome
-vim
+# vim-gnome
+# vim
 zsh
 
 -------------------------
 
 Install powerline-fonts
 
-$ wget https://github.com/powerline/fonts/archive/master.zip
+    $ sudo apt install fonts-powerline
+
+    or
+
+    $ wget https://github.com/powerline/fonts/archive/master.zip
 
 Install oh-my-zsh
 
-$ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 -------------------------
 
 Setup dotfiles
 
-$ ~/Downloads/dotfiles/setup.sh
+    $ git clone https://github.com/ssreekanth/dotfiles.git
+    $ cd dotfiles
+    $ ./setup.sh
