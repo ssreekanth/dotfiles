@@ -1,10 +1,27 @@
+android-tools-adb
 bleachbit
+bpfcc-tools
+build-essential
 cmake
+dconf-editor
 exuberant-ctags
+fbreader
 fonts-powerline
+gdb
+gimp
 git
+gnome-sushi
+gnome-tweaks
+gnome-shell-extension-autohidetopbar
+# gnome-shell-extension-gsconnect  # Instead, installed through browser extension 'Gnome Shell Integration'
+# gnome-shell-extension-gsconnect-browsers
+# gnome-shell-extension-weather
+gnome-shell-extensions
+gnome-weather
+gufw
 headset
 htop
+kodi
 meld
 neovim
 open-vm-tools-desktop
@@ -16,8 +33,10 @@ terminator
 tilix
 tmux
 unity-tweak-tool
+valgrind
 # vim-gnome
 # vim
+# xpad
 zsh
 
 -------------------------
