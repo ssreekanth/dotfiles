@@ -87,3 +87,9 @@ if is_darwin; then
         brew cleanup
     }
 fi
+
+if is_linux; then
+    function open() {
+        xdg-open $@
+    }
+fi
