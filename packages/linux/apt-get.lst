@@ -2,6 +2,7 @@ android-tools-adb
 bleachbit
 bpfcc-tools
 build-essential
+calibre  # best E-book editor and viewer
 cmake
 dconf-editor
 exuberant-ctags
