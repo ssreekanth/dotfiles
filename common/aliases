@@ -8,6 +8,10 @@ function is_linux() {
     if_os linux
 }
 
+function is_openwrt() {
+    is_linux && test -f "/etc/openwrt_version"
+}
+
 function is_darwin() {
     if_os darwin
 }
@@ -85,6 +89,12 @@ if is_darwin; then
         brew cu -a -y
         echo "====>>>> Cleaning up cask cached downloads"
         brew cleanup
+    }
+fi
+
+if is_openwrt; then
+    function upgrade_opkg_packages() {
+        opkg update && opkg list-upgradable | awk '{print $1}' | xargs -r opkg upgrade
     }
 fi
 
