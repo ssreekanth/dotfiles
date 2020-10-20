@@ -14,3 +14,7 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte-*.sh
 fi
 
+if is_openwrt; then
+    export TERM=xterm-256color
+fi
+
