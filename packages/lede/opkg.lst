@@ -7,6 +7,7 @@ diffutils               # need this for "vim -d"
 git
 git-http
 htop
+less
 luci-app-adblock
 luci-app-ddns
 luci-app-mjpg-streamer
