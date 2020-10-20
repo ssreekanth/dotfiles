@@ -68,6 +68,10 @@ if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
+if is_openwrt; then
+    DISABLE_AUTO_UPDATE="true"
+fi
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
