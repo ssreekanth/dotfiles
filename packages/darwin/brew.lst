@@ -67,7 +67,8 @@ flash-npapi
 flash-ppapi
 flickr-uploadr
 flux (not needed on macOS Sierra or later)
-font-meslo-for-powerline
+font-meslo-for-powerline (not required)
+font-powerline-symbols
 fork
 gimp
 google-chrome
@@ -81,6 +82,7 @@ kodi
 macvim
 mailspring (originally Nylas Mail)
 meld
+monitorcontrol
 opera
 pgadmin4
 postman
