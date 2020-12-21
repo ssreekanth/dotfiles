@@ -85,8 +85,10 @@ if is_darwin; then
         brew upgrade
         echo "====>>>> Cleaning up brew cached downloads"
         brew cleanup
+        echo "====>>>> Updating homebrew cask"
+        brew update --cask
         echo "====>>>> Upgrading outdated cask packages"
-        brew cu -a -y
+        brew upgrade --cask
         echo "====>>>> Cleaning up cask cached downloads"
         brew cleanup
     }
@@ -101,5 +103,22 @@ fi
 if is_linux; then
     function open() {
         xdg-open $@
+    }
+fi
+
+if is_darwin; then
+    # https://medium.com/@edgar/use-openconnect-as-a-replacement-for-cisco-anyconnect-vpn-client-in-mac-36eab0812718
+    vpn-setup() {
+        # sudo sh -c 'echo "%admin ALL=(ALL) NOPASSWD: /usr/local/bin/openconnect, /bin/kill" > /etc/sudoers.d/openconnect'
+        sudo sh -c 'echo "%admin ALL=(ALL) NOPASSWD: /usr/local/bin/openconnect" > /etc/sudoers.d/openconnect'
+    }
+
+    vpn-up() {
+        sudo openconnect --quiet --background --protocol=gp --user=$USERNAME connect.digitalguardian.com
+           # --passwd-on-stdin \
+    }
+
+    vpn-down() {
+        sudo kill -2 $(pgrep openconnect)
     }
 fi
