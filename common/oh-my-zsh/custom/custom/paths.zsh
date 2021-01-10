@@ -7,3 +7,5 @@ elif is_linux; then
 elif is_windows; then
     export PATH=$PATH:"$HOME/.bin:$HOME/bin:/usr/local/bin:$PATH"
 fi
+
+export PATH=$PATH:${GOBIN}

@@ -18,3 +18,5 @@ if is_openwrt; then
     export TERM=xterm-256color
 fi
 
+export GOBIN=${HOME}/go/bin
+export GOPATH=${HOME}/go/
