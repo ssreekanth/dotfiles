@@ -10,6 +10,8 @@ let vim_plugin_tmp_dir=$HOME."/.tmp/vim/plugged"
 
 call plug#begin(vim_plugin_tmp_dir)
 
+Plug 'mhinz/vim-startify'
+
 " Golang plugins
 Plug 'fatih/vim-go'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
