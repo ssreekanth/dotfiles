@@ -64,9 +64,7 @@ ZSH_THEME="agnoster"
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=$HOME/.oh-my-zsh/custom/custom
 
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
-fi
+[ -f ${HOME}/.aliases ] && . ${HOME}/.aliases
 
 if is_openwrt; then
     DISABLE_AUTO_UPDATE="true"
