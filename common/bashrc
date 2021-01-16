@@ -123,3 +123,8 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte*.sh
 fi
 
+
+# Golang Environment Variables
+export GOBIN=${HOME}/go/bin
+export GOPATH=${HOME}/go/
+export PATH=$PATH:${GOBIN}
