@@ -47,7 +47,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'juneedahamed/svnj.vim'
 
 " AutoComplete / Syntax Checking / Code Navigation
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 
