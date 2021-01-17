@@ -42,7 +42,7 @@ function tmux() {
 }
 
 function binary_exists() {
-    which ${1} &> /dev/null
+    command -v $1 > /dev/null 2>&1
 }
 
 if binary_exists nvim ; then
@@ -57,9 +57,11 @@ if binary_exists vim ; then
     }
 fi
 
-function vimdiff() {
-    vi -d $@
-}
+if ! binary_exists vimdiff ; then
+    function vimdiff() {
+        vi -d $@
+    }
+fi
 
 function svn_diff() {
     svn diff --internal-diff "$@" | vi -R -
