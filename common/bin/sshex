@@ -5,7 +5,7 @@
 #
 
 function binary_exists() {
-    which ${1} &> /dev/null
+    command -v $1 &> /dev/null
 }
 
 function log_error() {
@@ -61,10 +61,8 @@ function generate_and_copy_keys() {
 }
 
 function run_remote_command() {
-    if [ "$#" -eq 0 ]; then
+    if [ "$#" -eq 0 -a "$verbose" -eq 1 ]; then
         log_info "Did you forget to provide the command ?"
-        log_info "Let me leave you in remote's shell, take your time to enter the command."
-        log_info "But, Don't forget to exit from remote shell.."
     fi
     ssh -tq -i ${my_priv_key_file} -o "PasswordAuthentication no" -p ${port} ${user}@${remote_host} $@
 }
