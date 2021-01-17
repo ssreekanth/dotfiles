@@ -64,6 +64,10 @@ ZSH_THEME="agnoster"
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=$HOME/.oh-my-zsh/custom/custom
 
+# Add Homebrew to PATH. Need to do  this before sourcing ~/.aliases
+test -d ${HOME}/.linuxbrew && eval $(${HOME}/.linuxbrew/bin/brew shellenv)
+test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
 [ -f ${HOME}/.aliases ] && . ${HOME}/.aliases
 
 if is_openwrt; then
