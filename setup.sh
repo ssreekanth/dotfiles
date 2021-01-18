@@ -52,7 +52,7 @@ common_files="aliases bashrc bin hushlogin login screenrc subversion tmux.conf t
 common_special_files="oh-my-zsh/custom/custom"
 
 darwin_files="gitconfig hyper.js"
-darwin_special_files=""
+darwin_special_files="config/alacritty.yml"
 
 linux_files="gitconfig i3"
 linux_special_files="config/terminator config/dunst config/volumeicon"
