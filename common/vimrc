@@ -13,7 +13,7 @@ call plug#begin(vim_plugin_tmp_dir)
 Plug 'mhinz/vim-startify'
 
 " Golang plugins
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Themes / Color Schemes
