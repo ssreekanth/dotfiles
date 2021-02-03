@@ -79,20 +79,20 @@ function upgrade_tmux_plugins() {
     ${HOME}/.tmp/tmux/plugins/tpm/bin/update_plugins all
 }
 
-if is_darwin; then
+if is_darwin || is_linux; then
     function upgrade_brew_packages() {
         echo "====>>>> Updating homebrew"
         brew update
         echo "====>>>> Upgrading outdated brew packages"
         brew upgrade
-        echo "====>>>> Cleaning up brew cached downloads"
-        brew cleanup
-        echo "====>>>> Updating homebrew cask"
-        brew update --cask
         echo "====>>>> Upgrading outdated cask packages"
         brew upgrade --cask
-        echo "====>>>> Cleaning up cask cached downloads"
-        brew cleanup
+        echo "====>>>> Cleaning up brew cached downloads"
+        brew cleanup --prune=all
+    }
+
+    function list_brew_deps() {
+        brew leaves | xargs brew deps --installed --for-each | sed "s/^.*:/$(tput setaf 4)&$(tput sgr0)/"
     }
 fi
 
