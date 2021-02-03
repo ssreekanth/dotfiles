@@ -11,7 +11,7 @@ homebrew/versions (need this on my old iMac)
 neovim/neovim
 
 
->>>> Homebrew Packages <<<<
+>>>> homebrew/core Packages <<<<
 
 bash
 bear
@@ -49,8 +49,13 @@ watch
 wget
 zsh
 
+>>>> homebrew/cask-font Packages <<<<
+font-hack
+font-meslo-for-powerline (not required)
+font-powerline-symbols
 
->>>> Homebrew-Caskroom Packages <<<<
+
+>>>> homebrew/cask Packages <<<<
 
 android-platform-tools (not supported on my old iMac)
 atom
@@ -67,8 +72,6 @@ flash-npapi
 flash-ppapi
 flickr-uploadr
 flux (not needed on macOS Sierra or later)
-font-meslo-for-powerline (not required)
-font-powerline-symbols
 fork
 gimp
 google-chrome
