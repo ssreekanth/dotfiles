@@ -45,9 +45,9 @@ window:
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  #padding:
-  #  x: 0
-  #  y: 0
+  padding:
+    x: 2
+    y: 2
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -93,10 +93,10 @@ window:
   # and `light`. Set this to `None` to use the default theme variant.
   #gtk_theme_variant: None
 
-#scrolling:
+scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  #history: 10000
+  history: 10000
 
   # Scrolling distance multiplier.
   #multiplier: 3
@@ -179,11 +179,14 @@ font:
 #draw_bold_text_with_bright_colors: false
 
 # Colors (Tomorrow Night)
-#colors:
+colors:
   # Default colors
   #primary:
   #  background: '#1d1f21'
   #  foreground: '#c5c8c6'
+  primary:
+    background: '#1E1E1E'
+    foreground: '#D8DEE9'
 
     # Bright and dim foreground colors
     #
@@ -261,6 +264,15 @@ font:
   #  magenta: '#b294bb'
   #  cyan:    '#8abeb7'
   #  white:   '#c5c8c6'
+  normal:
+    black: "#3B4252"
+    red: "#D54646"
+    green: "#23D18B"
+    yellow: "#D7BA7D"
+    blue: "#569CD6"
+    magenta: "#C586C0"
+    cyan: "#29B8DB"
+    white: "#abb2bf"
 
   # Bright colors
   #bright:
@@ -272,6 +284,15 @@ font:
   #  magenta: '#c397d8'
   #  cyan:    '#70c0b1'
   #  white:   '#eaeaea'
+  bright:
+    black: "#3B4252"
+    red: "#D54646"
+    green: "#23D18B"
+    yellow: "#D7BA7D"
+    blue: "#569CD6"
+    magenta: "#C586C0"
+    cyan: "#29B8DB"
+    white: "#ECEFF4"
 
   # Dim colors
   #
@@ -788,7 +809,7 @@ key_bindings:
   #- { key: M,              mods: Command,                    action: Minimize         }
   #- { key: Q,              mods: Command,                    action: Quit             }
   #- { key: W,              mods: Command,                    action: Quit             }
-  #- { key: N,              mods: Command,                    action: SpawnNewInstance }
+  - { key: N,              mods: Command,                    action: SpawnNewInstance }
   - { key: Return,              mods: Command,            action: ToggleFullscreen }
   #- { key: F,              mods: Command, mode: ~Search,     action: SearchForward    }
   #- { key: B,              mods: Command, mode: ~Search,     action: SearchBackward   }
