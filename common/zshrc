@@ -65,13 +65,16 @@ ZSH_THEME="simple"
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=$HOME/.oh-my-zsh/custom/custom
 
-# Add Homebrew to PATH. Need to do  this before sourcing ~/.aliases
-test -d ${HOME}/.linuxbrew && eval $(${HOME}/.linuxbrew/bin/brew shellenv)
-test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+if [[ "$OSTYPE" == *"linux"* ]]; then
+    # Add Linuxbrew to PATH. Need to do  this before sourcing ~/.aliases
+    [ -d ${HOME}/.linuxbrew ] && eval $(${HOME}/.linuxbrew/bin/brew shellenv)
+    [ -d /home/linuxbrew/.linuxbrew ] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi
 
 [ -f ${HOME}/.aliases ] && . ${HOME}/.aliases
 
 if is_openwrt; then
+    # Disable auto updates on OpenWRT
     DISABLE_AUTO_UPDATE="true"
 fi
 
