@@ -111,7 +111,7 @@ if is_linux; then
         echo "====>>>> Cleaning up cask cached downloads"
         LANG=C snap list --all | awk '/disabled/{print $1, $3}' |
             while read snapname revision; do
-                snap remove "$snapname" --revision="$revision"
+                sudo snap remove "$snapname" --revision="$revision"
             done
         echo "====>>>> Done"
     }
