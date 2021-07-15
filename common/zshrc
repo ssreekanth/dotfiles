@@ -68,7 +68,7 @@ ZSH_THEME="simple"
 ZSH_CUSTOM=$HOME/.oh-my-zsh/custom/custom
 
 if [[ "$OSTYPE" == *"linux"* ]]; then
-    # Add Linuxbrew to PATH. Need to do  this before sourcing ~/.aliases
+    # Add Linuxbrew to PATH. Need to do this before sourcing ~/.aliases
     [ -d ${HOME}/.linuxbrew ] && eval $(${HOME}/.linuxbrew/bin/brew shellenv)
     [ -d /home/linuxbrew/.linuxbrew ] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fi
@@ -85,7 +85,7 @@ fi
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(colored-man-pages docker extract gcloud git golang kubectl npm tmux vi-mode z)
+plugins=(colored-man-pages docker extract gcloud git golang kubectl kubectx npm tmux vi-mode z)
 
 if is_darwin; then
     plugins+=(brew macos)
