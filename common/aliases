@@ -89,8 +89,10 @@ if is_darwin || is_linux; then
         brew update
         echo "====>>>> Upgrading outdated brew packages"
         brew upgrade
-        echo "====>>>> Upgrading outdated cask packages"
-        brew upgrade --cask --greedy
+        if is_darwin; then
+            echo "====>>>> Upgrading outdated cask packages"
+            brew upgrade --cask --greedy
+        fi
         echo "====>>>> Cleaning up brew cached downloads"
         brew cleanup --prune=all
     }
