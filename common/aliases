@@ -140,4 +140,17 @@ if is_darwin; then
     vpn-down() {
         sudo kill -2 $(pgrep openconnect)
     }
+
+    # Synergy not working?? Run this function to find out whoz locking up the keyboard.
+    secureinputtest() {
+        osascript -l JavaScript << END_TEXT
+        while (true) {
+          ObjC.bindFunction('IsSecureEventInputEnabled', ['bool', []]);
+          console.log( $.IsSecureEventInputEnabled() ?
+            "SecureEventInput is enabled" :
+            "SecureEventInput is not enabled");
+          delay(1);
+        }
+END_TEXT
+    }
 fi
