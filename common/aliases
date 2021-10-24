@@ -95,6 +95,7 @@ if is_darwin || is_linux; then
         fi
         echo "====>>>> Cleaning up brew cached downloads"
         brew cleanup --prune=all
+        brew autoremove
     }
 
     function list_brew_deps() {
