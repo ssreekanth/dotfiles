@@ -153,4 +153,8 @@ if is_darwin; then
         }
 END_TEXT
     }
+
+    if binary_exists podman; then
+        alias docker=podman
+    fi
 fi
