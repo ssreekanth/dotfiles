@@ -71,6 +71,10 @@ function git_diff() {
     git diff --no-ext-diff -w "$@" | vi -R -
 }
 
+function upgrade_ohmyzsh() {
+    omz update
+}
+
 function upgrade_vim_plugins() {
     vi +PlugUpdate +PlugUpgrade +qa
 }
