@@ -88,7 +88,7 @@ fi
 plugins=(colored-man-pages docker extract gcloud git golang kubectl npm tmux vi-mode z)
 
 if is_darwin; then
-    plugins+=(brew osx)
+    plugins+=(brew macos)
 elif is_linux; then
     plugins+=(debian)
 fi
