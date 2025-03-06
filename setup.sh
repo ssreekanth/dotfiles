@@ -52,7 +52,7 @@ common_files="aliases bashrc bash_logout bin hushlogin login screenrc subversion
 common_special_files="oh-my-zsh/custom/custom"
 
 darwin_files="gitconfig hyper.js"
-darwin_special_files="config/alacritty.yml"
+darwin_special_files="config/alacritty.toml config/dracula.toml"
 
 linux_files="gitconfig i3"
 linux_special_files="config/terminator config/dunst config/volumeicon"
