@@ -1,4 +1,3 @@
-import = ["/Users/ssettipalli/.config/dracula.toml"]
 
 #[colors.bright]
 #black = "#3B4252"
@@ -103,3 +102,6 @@ lines = 50
 [window.padding]
 x = 2
 y = 2
+
+[general]
+import = ["$HOME/.config/dracula.toml"]
