@@ -113,6 +113,7 @@ fi
 
 [ -f ${HOME}/.aliases ] && . ${HOME}/.aliases
 [ -f ${HOME}/.aliases_work ] && . ${HOME}/.aliases_work
+[ -f ${HOME}/.kubech/kubech ] && . ${HOME}/.kubech/kubech
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

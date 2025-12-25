@@ -2,3 +2,6 @@
 # [ -f ${HOME}/.aliases ] && . ${HOME}/.aliases
 
 [ -f ${HOME}/.aliases_work ] && . ${HOME}/.aliases_work
+
+[ -f ${HOME}/.kubech/kubech ] && export KUBECH_NAMESPACE_CHECK=label && . ${HOME}/.kubech/kubech
+
