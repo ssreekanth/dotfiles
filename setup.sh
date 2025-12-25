@@ -49,7 +49,7 @@ user_home_dir=${HOME}                              # target location for symlink
 # List of files/folders to symlink in homedir
 
 common_files="aliases bashrc bash_logout bin hushlogin login screenrc subversion tmux.conf tmux vimrc vim zprofile zshrc"
-common_special_files="oh-my-zsh/custom/custom config/alacritty"
+common_special_files="aliases.d oh-my-zsh/custom/custom config/alacritty"
 
 darwin_files="gitconfig hyper.js"
 darwin_special_files=""

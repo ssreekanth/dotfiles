@@ -158,3 +158,12 @@ END_TEXT
         alias docker=podman
     fi
 fi
+
+# Source additional function files from aliases.d directory
+if [ -d "${HOME}/.aliases.d" ]; then
+    for alias_file in "${HOME}"/.aliases.d/*; do
+        if [ -f "$alias_file" ]; then
+            . "$alias_file"
+        fi
+    done
+fi

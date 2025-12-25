@@ -5,3 +5,4 @@ common/subversion/auth/
 common/vim/autoload/plug.vim
 common/vim/autoload/plug.vim.old
 common/vim/init.vim
+.DS_Store

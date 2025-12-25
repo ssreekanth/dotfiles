@@ -1,0 +1,79 @@
+# vi: set ft=sh:
+# CyberChef Docker Container Management Functions
+
+function cyberchef_start() {
+    local port="${CYBERCHEF_PORT:-8080}"
+
+    if docker ps -a --format '{{.Names}}' | grep -q '^cyberchef$'; then
+        if docker ps --format '{{.Names}}' | grep -q '^cyberchef$'; then
+            echo "CyberChef container is already running"
+            local running_port=$(docker port cyberchef | awk -F: '{print $2}' | head -1)
+            echo "CyberChef is available at http://localhost:${running_port}"
+            return 0
+        else
+            echo "Starting existing CyberChef container..."
+            docker start cyberchef
+            local running_port=$(docker port cyberchef | awk -F: '{print $2}' | head -1)
+            echo "CyberChef is available at http://localhost:${running_port}"
+            return 0
+        fi
+    else
+        # Check if port is in use
+        if lsof -Pi :${port} -sTCP:LISTEN -t >/dev/null 2>&1; then
+            echo "Error: Port ${port} is already in use by another application"
+            echo "Set CYBERCHEF_PORT to use a different port:"
+            echo "  export CYBERCHEF_PORT=8081"
+            echo "  cyberchef_start"
+            return 1
+        fi
+
+        echo "Creating and starting CyberChef container on port ${port}..."
+        docker run -d -p ${port}:80 --name=cyberchef ghcr.io/gchq/cyberchef:latest
+        echo "CyberChef is available at http://localhost:${port}"
+    fi
+}
+
+function cyberchef_stop() {
+    if docker ps --format '{{.Names}}' | grep -q '^cyberchef$'; then
+        echo "Stopping CyberChef container..."
+        docker stop cyberchef
+    else
+        echo "CyberChef container is not running"
+    fi
+}
+
+function cyberchef_open() {
+    if ! docker ps --format '{{.Names}}' | grep -q '^cyberchef$'; then
+        echo "CyberChef is not running. Starting it now..."
+        cyberchef_start || return 1
+        echo "Waiting for CyberChef to be ready..."
+        sleep 2
+    fi
+
+    local running_port=$(docker port cyberchef | awk -F: '{print $2}' | head -1)
+    if [ -z "$running_port" ]; then
+        running_port="${CYBERCHEF_PORT:-8080}"
+    fi
+
+    echo "Opening CyberChef in browser..."
+    open http://localhost:${running_port}
+}
+
+function cyberchef_restart() {
+    cyberchef_stop
+    sleep 1
+    cyberchef_start
+}
+
+function cyberchef_update() {
+    echo "Pulling latest CyberChef image..."
+    docker pull ghcr.io/gchq/cyberchef:latest
+
+    if docker ps -a --format '{{.Names}}' | grep -q '^cyberchef$'; then
+        echo "Removing existing CyberChef container..."
+        docker rm -f cyberchef
+    fi
+
+    echo "Starting CyberChef with latest image..."
+    cyberchef_start
+}
