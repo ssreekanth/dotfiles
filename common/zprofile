@@ -1,0 +1,28 @@
+# vi: set ft=sh:
+# ~/.zprofile - runs after /etc/zprofile for login shells
+
+# Ensure correct PATH order for login shells
+# /etc/zprofile runs path_helper which can mess up the order
+
+# First, ensure user bin directories are at the front (if they exist)
+user_paths=""
+for user_dir in "$HOME/.bin" "$HOME/bin"; do
+    if [ -d "$user_dir" ]; then
+        # Remove from PATH if already present
+        PATH=$(echo "$PATH" | tr ':' '\n' | grep -v "^${user_dir}$" | tr '\n' ':' | sed 's/:$//')
+        user_paths="${user_paths}${user_dir}:"
+    fi
+done
+
+# Then ensure Homebrew paths come next
+if [ -d "/opt/homebrew/bin" ]; then
+    # Remove homebrew paths from wherever they are in PATH
+    PATH=$(echo "$PATH" | tr ':' '\n' | grep -v "^/opt/homebrew" | tr '\n' ':' | sed 's/:$//')
+    # Rebuild PATH: user paths, then homebrew, then rest
+    export PATH="${user_paths}/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+else
+    # Just user paths if no homebrew
+    export PATH="${user_paths}${PATH}"
+fi
+
+unset user_paths user_dir
