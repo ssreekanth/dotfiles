@@ -5,3 +5,4 @@
 
 [ -f ${HOME}/.kubech/kubech ] && export KUBECH_NAMESPACE_CHECK=label && . ${HOME}/.kubech/kubech
 
+[[ ! -f ~/.kubecm ]] || source ~/.kubecm

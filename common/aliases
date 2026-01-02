@@ -154,10 +154,15 @@ if is_darwin; then
 END_TEXT
     }
 
-    if binary_exists podman; then
-        alias docker=podman
-    fi
 fi
+
+#function watcha {
+#    watch --color $(alias "$1" | cut -d\' -f2)
+#}
+
+function watcha() {
+    watch "$SHELL -ci '$@'"
+}
 
 # Source additional function files from aliases.d directory
 if [ -d "${HOME}/.aliases.d" ]; then

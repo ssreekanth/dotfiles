@@ -20,3 +20,11 @@ fi
 
 export GOBIN=${HOME}/go/bin
 export GOPATH=${HOME}/go/
+
+if is_darwin; then
+    # export CLOUDSDK_PYTHON=/usr/local/bin/python3
+fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
